@@ -1,0 +1,118 @@
+[dash@localhost Downloads]$ wget https://download.postgresql.org/pub/repos/yum/17/redhat/rhel-8-x86_64/postgresql17-libs-17.6-1PGDG.rhel8.x86_64.rpm 
+[dash@localhost Downloads]$ wget https://download.postgresql.org/pub/repos/yum/17/redhat/rhel-8-x86_64/postgresql17-17.6-1PGDG.rhel8.x86_64.rpm
+[dash@localhost Downloads]$ wget https://download.postgresql.org/pub/repos/yum/17/redhat/rhel-8-x86_64/postgresql17-contrib-17.6-1PGDG.rhel8.x86_64.rpm
+[dash@localhost Downloads]$ wget https://download.postgresql.org/pub/repos/yum/17/redhat/rhel-8-x86_64/postgresql17-server-17.6-1PGDG.rhel8.x86_64.rpm
+
+--2025-09-29 20:02:16--  https://download.postgresql.org/pub/repos/yum/17/redhat/rhel-8-x86_64/postgresql17-libs-17.6-1PGDG.rhel8.x86_64.rpm
+Resolving download.postgresql.org (download.postgresql.org)... 199.232.103.52, 2a04:4e42:25::820
+Connecting to download.postgresql.org (download.postgresql.org)|199.232.103.52|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 345244 (337K) [application/x-redhat-package-manager]
+Saving to: ‘postgresql17-libs-17.6-1PGDG.rhel8.x86_64.rpm’
+postgresql17-libs-17.6-1PGDG.rhel8.x86_64.rpm   100%[====================================================================================================>] 337.15K  1.05MB/s    in 0.3s    
+
+2025-09-29 20:02:17 (1.05 MB/s) - ‘postgresql17-libs-17.6-1PGDG.rhel8.x86_64.rpm’ saved [345244/345244]
+
+--2025-09-29 20:02:17--  https://download.postgresql.org/pub/repos/yum/17/redhat/rhel-8-x86_64/postgresql17-17.6-1PGDG.rhel8.x86_64.rpm
+Reusing existing connection to download.postgresql.org:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 2184344 (2.1M) [application/x-redhat-package-manager]
+Saving to: ‘postgresql17-17.6-1PGDG.rhel8.x86_64.rpm’
+
+postgresql17-17.6-1PGDG.rhel8.x86_64.rpm        100%[====================================================================================================>]   2.08M  3.39MB/s    in 0.6s    
+
+2025-09-29 20:02:18 (3.39 MB/s) - ‘postgresql17-17.6-1PGDG.rhel8.x86_64.rpm’ saved [2184344/2184344]
+
+--2025-09-29 20:02:18--  https://download.postgresql.org/pub/repos/yum/17/redhat/rhel-8-x86_64/postgresql17-contrib-17.6-1PGDG.rhel8.x86_64.rpm
+Reusing existing connection to download.postgresql.org:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 787700 (769K) [application/x-redhat-package-manager]
+Saving to: ‘postgresql17-contrib-17.6-1PGDG.rhel8.x86_64.rpm’
+
+postgresql17-contrib-17.6-1PGDG.rhel8.x86_64.rp 100%[====================================================================================================>] 769.24K  --.-KB/s    in 0.04s   
+
+2025-09-29 20:02:19 (16.9 MB/s) - ‘postgresql17-contrib-17.6-1PGDG.rhel8.x86_64.rpm’ saved [787700/787700]
+
+--2025-09-29 20:02:19--  https://download.postgresql.org/pub/repos/yum/17/redhat/rhel-8-x86_64/postgresql17-server-17.6-1PGDG.rhel8.x86_64.rpm
+Reusing existing connection to download.postgresql.org:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 7333516 (7.0M) [application/x-redhat-package-manager]
+Saving to: ‘postgresql17-server-17.6-1PGDG.rhel8.x86_64.rpm’
+
+postgresql17-server-17.6-1PGDG.rhel8.x86_64.rpm 100%[====================================================================================================>]   6.99M  1.83MB/s    in 3.8s    
+
+2025-09-29 20:02:23 (1.83 MB/s) - ‘postgresql17-server-17.6-1PGDG.rhel8.x86_64.rpm’ saved [7333516/7333516]
+
+FINISHED --2025-09-29 20:02:25--
+Total wall clock time: 9.3s
+Downloaded: 4 files, 13M in 6.7s (1.94 MB/s)
+
+[dash@localhost Downloads]$ ls -lrt
+total 13404
+-rw-rw-r--. 1 dash dash 2184344 Aug 13 18:35 postgresql17-17.6-1PGDG.rhel8.x86_64.rpm
+-rw-rw-r--. 1 dash dash 7333516 Aug 13 18:35 postgresql17-server-17.6-1PGDG.rhel8.x86_64.rpm
+-rw-rw-r--. 1 dash dash  345244 Aug 13 18:35 postgresql17-libs-17.6-1PGDG.rhel8.x86_64.rpm
+-rw-rw-r--. 1 dash dash 3063380 Aug 13 18:35 postgresql17-devel-17.6-1PGDG.rhel8.x86_64.rpm
+-rw-rw-r--. 1 dash dash  787700 Aug 13 18:35 postgresql17-contrib-17.6-1PGDG.rhel8.x86_64.rpm
+
+[dash@localhost Downloads]$ su - root
+Password:
+[root@localhost ~]# cd /home/dash/Downloads/
+
+[root@localhost Downloads]# rpm -ivh postgresql17-17.6-1PGDG.rhel8.x86_64.rpm postgresql17-server-17.6-1PGDG.rhel8.x86_64.rpm postgresql17-libs-17.6-1PGDG.rhel8.x86_64.rpm postgresql17-contrib-17.6-1PGDG.rhel8.x86_64.rpm
+warning: postgresql17-17.6-1PGDG.rhel8.x86_64.rpm: Header V4 RSA/SHA256 Signature, key ID 08b40d20: NOKEY
+Verifying...                          ################################# [100%]
+Preparing...                          ################################# [100%]
+Updating / installing...
+   1:postgresql17-libs-17.6-1PGDG.rhel################################# [ 25%]
+   2:postgresql17-17.6-1PGDG.rhel8    ################################# [ 50%]
+   3:postgresql17-server-17.6-1PGDG.rh################################# [ 75%]
+   4:postgresql17-contrib-17.6-1PGDG.r################################# [100%]
+
+[root@localhost Downloads]# rpm -qa|grep -i postgres
+postgresql17-contrib-17.6-1PGDG.rhel8.x86_64
+postgresql17-libs-17.6-1PGDG.rhel8.x86_64
+postgresql17-server-17.6-1PGDG.rhel8.x86_64
+pcp-pmda-postgresql-5.3.7-19.0.1.el8.x86_64
+postgresql17-17.6-1PGDG.rhel8.x86_64
+
+[root@localhost /]# mkdir -p /PostgreSQL/data
+[root@localhost /]# chown -R postgres:postgres /PostgreSQL/data
+[root@localhost /]# chmod -R 700 /PostgreSQL/data/
+
+[root@localhost /]# su – postgres
+[postgres@localhost ~]$ /usr/pgsql-17/bin/initdb -D /PostgreSQL/data/
+The files belonging to this database system will be owned by user "postgres".
+This user must also own the server process.
+
+The database cluster will be initialized with locale "en_IN.UTF-8".
+The default database encoding has accordingly been set to "UTF8".
+The default text search configuration will be set to "english".
+
+Data page checksums are disabled.
+
+fixing permissions on existing directory /PostgreSQL/data ... ok
+creating subdirectories ... ok
+selecting dynamic shared memory implementation ... posix
+selecting default "max_connections" ... 100
+selecting default "shared_buffers" ... 128MB
+selecting default time zone ... Asia/Kolkata
+creating configuration files ... ok
+running bootstrap script ... ok
+performing post-bootstrap initialization ... ok
+syncing data to disk ... ok
+
+initdb: warning: enabling "trust" authentication for local connections
+initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+
+Success. You can now start the database server using:
+
+    /usr/pgsql-17/bin/pg_ctl -D /PostgreSQL/data/ -l logfile start
+[postgres@localhost ~]$ /usr/pgsql-17/bin/pg_ctl -D /PostgreSQL/data/ -l logfile start
+waiting for server to start.... done
+server started
+[postgres@localhost ~]$ psql
+psql (17.6)
+Type "help" for help.
+postgres-#
+
