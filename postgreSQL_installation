@@ -115,4 +115,5 @@ server started
 psql (17.6)
 Type "help" for help.
 postgres-#
-
+To check list of database
+postgres-# /l
